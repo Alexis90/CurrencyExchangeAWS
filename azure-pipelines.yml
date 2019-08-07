@@ -25,7 +25,7 @@ steps:
     pmdRunAnalysis: false
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '/home/vsts/work/1/s/target/helloworld.war' 
+    pathtoPublish: '/home/vsts/work/1/s/target/currencyexchanger.war' 
     artifactName: 'drop'
     echo: $(Build.ArtifactStagingDirectory)
     
