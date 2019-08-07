@@ -20,19 +20,19 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    findBugsRunAnalysis: true
-    checkStyleRunAnalysis: true
-    pmdRunAnalysis: true
-    
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: "JaCoCo"
-    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-    failIfCoverageEmpty: true
-
+    findBugsRunAnalysis: false
+    checkStyleRunAnalysis: false
+    pmdRunAnalysis: false
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    pathtoPublish: '/home/vsts/work/1/s/target/helloworld.war' 
     artifactName: 'drop'
     echo: $(Build.ArtifactStagingDirectory)
+    
+#- task: PublishCodeCoverageResults@1
+#  inputs:
+#    codeCoverageTool: "JaCoCo"
+#    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
+#    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
+#    failIfCoverageEmpty: true
+
