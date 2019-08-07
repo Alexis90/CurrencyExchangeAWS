@@ -12,5 +12,5 @@
 <servlet-mapping>
   <servlet-name>HelloWorldAlex</servlet-name>
   <url-pattern>/*</url-pattern> 
-</servlet-mapping>
+</servlet-mapping> 
 </web-app>
