@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Hello World Web Application</display-name>
+  <servlet>
+  	<servlet-name>HelloWorld</servlet-name>
+  	<display-name>HelloWorld</display-name>
+  	<description></description>
+  	<servlet-class>com.microsoft.demo.HelloWorld</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HelloWorld</servlet-name>
+  	<url-pattern>/HelloWorld</url-pattern>
+  </servlet-mapping>
 </web-app>
