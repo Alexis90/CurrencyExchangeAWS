@@ -102,6 +102,76 @@ public class MyTest {
 			assertEquals("Currency exchange euro_pound",
 					"{\"exchangeCourse\":0.92,\"calculatedValue\":1.84,\"requestOperation\":\"calculateValue\",\"requestedCourse\":\"euro_pound\"}",
 					sw.toString());
+			
+			sw = new StringWriter();
+			pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+			bufferedReader = null;
+			bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"calculateValue\",\n"
+							+ "	\"requestedCourse\": \"euro_dollar\",\n" + "	\"sourceValue\": 2\n" + "	\n" + "}"));
+			
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Currency exchange euro_dollar",
+					"{\"exchangeCourse\":1.12,\"calculatedValue\":2.24,\"requestOperation\":\"calculateValue\",\"requestedCourse\":\"euro_dollar\"}",
+					sw.toString());
+			
+			sw = new StringWriter();
+			pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+			bufferedReader = null;
+			bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"calculateValue\",\n"
+							+ "	\"requestedCourse\": \"euro_chf\",\n" + "	\"sourceValue\": 2\n" + "	\n" + "}"));
+			
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Currency exchange euro_chf",
+					"{\"exchangeCourse\":1.09,\"calculatedValue\":2.18,\"requestOperation\":\"calculateValue\",\"requestedCourse\":\"euro_chf\"}",
+					sw.toString());
+			
+			sw = new StringWriter();
+			pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+			bufferedReader = null;
+			bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"calculateValue\",\n"
+							+ "	\"requestedCourse\": \"chf_euro\",\n" + "	\"sourceValue\": 2\n" + "	\n" + "}"));
+			
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Currency exchange chf_euro",
+					"{\"exchangeCourse\":0.91,\"calculatedValue\":1.82,\"requestOperation\":\"calculateValue\",\"requestedCourse\":\"chf_euro\"}",
+					sw.toString());
+			
+			sw = new StringWriter();
+			pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+			bufferedReader = null;
+			bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"calculateValue\",\n"
+							+ "	\"requestedCourse\": \"dollar_euro\",\n" + "	\"sourceValue\": 2\n" + "	\n" + "}"));
+			
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Currency exchange dollar_euro",
+					"{\"exchangeCourse\":0.89,\"calculatedValue\":1.78,\"requestOperation\":\"calculateValue\",\"requestedCourse\":\"dollar_euro\"}",
+					sw.toString());
+			
+			sw = new StringWriter();
+			pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+			bufferedReader = null;
+			bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"calculateValue\",\n"
+							+ "	\"requestedCourse\": \"pound_euro\",\n" + "	\"sourceValue\": 2\n" + "	\n" + "}"));
+			
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Currency exchange pound_euro",
+					"{\"exchangeCourse\":1.08,\"calculatedValue\":2.16,\"requestOperation\":\"calculateValue\",\"requestedCourse\":\"pound_euro\"}",
+					sw.toString());
 
 		} catch (ServletException e) {
 
