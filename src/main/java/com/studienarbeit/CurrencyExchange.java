@@ -1,6 +1,6 @@
 package com.studienarbeit;
 
-import java.io.BufferedReader;
+import java.io.BufferedReader; 
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -97,12 +96,14 @@ public class CurrencyExchange extends HttpServlet {
 		} catch (JSONException e) {			
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			out.print("Your JSONObject is malformed");
+			out.close();
+			return;
 			
 
 		}
-		finally{
-			out.close();
-		} 
+		
+			
+		
 		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
