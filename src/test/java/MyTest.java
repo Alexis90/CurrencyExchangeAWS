@@ -4,8 +4,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -72,6 +75,62 @@ public class MyTest {
 			new CurrencyExchange().doGet(request, response);
 			assertTrue(sw.toString().contains("I am running"));
 			Mockito.verify(response).setContentType("plain/text");
+
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testServletCalculatedValuePostOperation() {
+
+		try {
+
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+			
+			//BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
+			BufferedReader bufferedReader = new BufferedReader(new StringReader("{\n" + 
+					"	\"requestedOperation\" : \"calculateValue\",\n" + 
+					"	\"requestedCourse\": \"euro_pound\",\n" + 
+					"	\"sourceValue\": 2\n" + 
+					"	\n" + 
+					"}"));
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Currency exchange euro_pound", "{\"exchangeCourse\":0.92,\"calculatedValue\":1.84,\"requestOperation\":\"calculateValue\",\"requestedCourse\":\"euro_pound\"}", sw.toString());
+
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	public void testServletGetValueEuroPoundPostOperation() {
+
+		try {
+
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+			
+			//BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
+			BufferedReader bufferedReader = new BufferedReader(new StringReader("{\n" + 
+					"	\"requestedOperation\" : \"getCourse\",\n" + 
+					"	\"requestedCourse\": \"euro_pound\"\n" + 
+					"	\n" + 
+					"}"));
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Get exchange value euro_pound", "{\"requestedOperation\":\"getCourse\",\"exchangeCourse\":0.92,\"requestedCourse\":\"euro_pound\"}", sw.toString());
 
 		} catch (ServletException e) {
 
