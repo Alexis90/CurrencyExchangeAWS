@@ -111,7 +111,8 @@ public class MyTest {
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Test
 	public void testServletGetValueEuroPoundPostOperation() {
 
 		try {
@@ -128,6 +129,146 @@ public class MyTest {
 			new CurrencyExchange().doPost(request, response);
 			assertEquals("Get exchange value euro_pound",
 					"{\"requestedOperation\":\"getCourse\",\"exchangeCourse\":0.92,\"requestedCourse\":\"euro_pound\"}",
+					sw.toString());
+
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testServletGetValueEuroDollarPostOperation() {
+
+		try {
+
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+
+			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
+			BufferedReader bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
+							+ "	\"requestedCourse\": \"euro_dollar\"\n" + "	\n" + "}"));
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Get exchange value euro_pound",
+					"{\"requestedOperation\":\"getCourse\",\"exchangeCourse\":1.12,\"requestedCourse\":\"euro_dollar\"}",
+					sw.toString());
+
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testServletGetValueEuroCHFPostOperation() {
+
+		try {
+
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+
+			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
+			BufferedReader bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
+							+ "	\"requestedCourse\": \"euro_chf\"\n" + "	\n" + "}"));
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Get exchange value euro_pound",
+					"{\"requestedOperation\":\"getCourse\",\"exchangeCourse\":1.09,\"requestedCourse\":\"euro_chf\"}",
+					sw.toString());
+
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testServletGetValueCHFEuroPostOperation() {
+
+		try {
+
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+
+			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
+			BufferedReader bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
+							+ "	\"requestedCourse\": \"chf_euro\"\n" + "	\n" + "}"));
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Get exchange value euro_pound",
+					"{\"requestedOperation\":\"getCourse\",\"exchangeCourse\":0.91,\"requestedCourse\":\"chf_euro\"}",
+					sw.toString());
+
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testServletGetValueDollarEuroPostOperation() {
+
+		try {
+
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+
+			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
+			BufferedReader bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
+							+ "	\"requestedCourse\": \"dollar_euro\"\n" + "	\n" + "}"));
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Get exchange value euro_pound",
+					"{\"requestedOperation\":\"getCourse\",\"exchangeCourse\":0.89,\"requestedCourse\":\"dollar_euro\"}",
+					sw.toString());
+
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testServletGetValuePoundEuroPostOperation() {
+
+		try {
+
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			Mockito.when(response.getWriter()).thenReturn(pw);
+
+			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
+			BufferedReader bufferedReader = new BufferedReader(
+					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
+							+ "	\"requestedCourse\": \"pound_euro\"\n" + "	\n" + "}"));
+			Mockito.when(request.getReader()).thenReturn(bufferedReader);
+			new CurrencyExchange().doPost(request, response);
+			assertEquals("Get exchange value euro_pound",
+					"{\"requestedOperation\":\"getCourse\",\"exchangeCourse\":1.08,\"requestedCourse\":\"pound_euro\"}",
 					sw.toString());
 
 		} catch (ServletException e) {
