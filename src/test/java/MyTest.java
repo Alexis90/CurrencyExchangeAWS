@@ -20,7 +20,6 @@ import javax.servlet.http.HttpSession;
 
 import com.studienarbeit.CurrencyExchange;
 import com.studienarbeit.CurrencyInformation;
-import com.studienarbeit.NotFoundException;
 
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -94,7 +93,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"calculateValue\",\n"
 							+ "	\"requestedCourse\": \"euro_pound\",\n" + "	\"sourceValue\": 2\n" + "	\n" + "}"));
@@ -192,7 +190,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
 							+ "	\"requestedCourse\": \"euro_pound\"\n" + "	\n" + "}"));
@@ -220,7 +217,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
 							+ "	\"requestedCourse\": \"euro_dollar\"\n" + "	\n" + "}"));
@@ -248,7 +244,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
 							+ "	\"requestedCourse\": \"euro_chf\"\n" + "	\n" + "}"));
@@ -276,7 +271,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
 							+ "	\"requestedCourse\": \"chf_euro\"\n" + "	\n" + "}"));
@@ -304,7 +298,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
 							+ "	\"requestedCourse\": \"dollar_euro\"\n" + "	\n" + "}"));
@@ -332,7 +325,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
 							+ "	\"requestedCourse\": \"pound_euro\"\n" + "	\n" + "}"));
@@ -360,7 +352,6 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
 			BufferedReader bufferedReader = new BufferedReader(
 					new StringReader("{\n" + "	\"requestedOperation\" : \"getCourse\",\n"
 							+ "	\"requestedCourse\": \"pound_euros\"\n" + "	\n" + "}"));
@@ -383,7 +374,7 @@ public class MyTest {
 		}
 
 	}
-	
+
 	@Test
 	public void testMalformedJSON() {
 
@@ -393,10 +384,8 @@ public class MyTest {
 			PrintWriter pw = new PrintWriter(sw);
 			Mockito.when(response.getWriter()).thenReturn(pw);
 
-			// BufferedReader bufferedReader = Mockito.mock(BufferedReader.class);
-			BufferedReader bufferedReader = new BufferedReader(
-					new StringReader("{\n" + "	\"Operation\" : \"getCourse\",\n"
-							+ "	\"requestedCourse\": \"pound_euros\"\n" + "	\n" + "}"));
+			BufferedReader bufferedReader = new BufferedReader(new StringReader("{\n"
+					+ "	\"Operation\" : \"getCourse\",\n" + "	\"requestedCourse\": \"pound_euros\"\n" + "	\n" + "}"));
 			Mockito.when(request.getReader()).thenReturn(bufferedReader);
 			new CurrencyExchange().doPost(request, response);
 			assertTrue(sw.toString().contains("Your JSONObject is malformed"));

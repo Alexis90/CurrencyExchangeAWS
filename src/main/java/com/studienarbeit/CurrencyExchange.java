@@ -12,46 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Servlet implementation class CurrencyExchange
- */
 
 public class CurrencyExchange extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String operationGetCourse = "getCourse";
 	private static final String operationCalculateValue = "calculateValue";
 
-	/**
-	 * Default constructor.
-	 */
+	
 	public CurrencyExchange() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		if (response == null) {
-			throw new IllegalArgumentException("Response is null");
-		}
-		if (request == null) {
-			throw new IllegalArgumentException("Request is null");
-		}
-		if (response.getWriter() == null) {
-			throw new IllegalStateException("Response-Writer is null");
-		}
+		
 		response.setContentType("plain/text");
 		response.getWriter().append("I am running");
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
