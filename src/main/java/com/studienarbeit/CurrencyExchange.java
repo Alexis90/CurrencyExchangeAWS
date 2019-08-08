@@ -32,10 +32,21 @@ public class CurrencyExchange extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		if(response == null) {
+			throw new IllegalArgumentException("Response is null");
+		} 
+		if(request == null) {
+			throw new IllegalArgumentException("Request is null");
+		}
+		if(response.getWriter() == null) {
+			throw new IllegalStateException("Response-Writer is null");
+		}
+		response.setContentType("plain/text");
+		response.getWriter().append("I am running");
+		
 	}
 
 	/**
