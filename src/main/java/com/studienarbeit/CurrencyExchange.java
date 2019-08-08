@@ -32,47 +32,37 @@ public class CurrencyExchange extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if(response == null) {
+		if (response == null) {
 			throw new IllegalArgumentException("Response is null");
-		} 
-		if(request == null) {
+		}
+		if (request == null) {
 			throw new IllegalArgumentException("Request is null");
 		}
-		if(response.getWriter() == null) {
+		if (response.getWriter() == null) {
 			throw new IllegalStateException("Response-Writer is null");
 		}
 		response.setContentType("plain/text");
 		response.getWriter().append("I am running");
-		
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
 
 		JSONObject jsonResponse = null;
 		StringBuffer sb = new StringBuffer();
 		String line = null;
-		try {
-			BufferedReader reader = request.getReader();
-			while ((line = reader.readLine()) != null)
-				sb.append(line);
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			out.print("We were not able to read your request");
-			out.close();
-			return;
 
-		}
+		BufferedReader reader = request.getReader();
+		while ((line = reader.readLine()) != null)
+			sb.append(line);
 
 		try {
 			String jsonString = sb.toString();
@@ -106,7 +96,7 @@ public class CurrencyExchange extends HttpServlet {
 				out.print("The operation requested ist not available. You can use 'getCourse' or 'calculateValue'");
 				out.close();
 				return;
-				
+
 			}
 
 		} catch (JSONException e) {
