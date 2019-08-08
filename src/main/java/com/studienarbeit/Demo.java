@@ -1,4 +1,4 @@
-package com.microsoft.demo;
+package com.studienarbeit;
 
 public class Demo {
     public void DoSomething(boolean flag){

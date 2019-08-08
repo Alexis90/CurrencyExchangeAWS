@@ -1,5 +1,6 @@
-import com.microsoft.demo.Demo;
 import org.junit.Test;
+
+import com.studienarbeit.Demo;
 
 public class MyTest {
     @Test

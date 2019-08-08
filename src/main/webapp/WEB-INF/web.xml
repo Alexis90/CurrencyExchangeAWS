@@ -3,14 +3,14 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Hello World Web Application</display-name>
+  <display-name>CurrencyExchange Web Application</display-name>
 <servlet>
-  <servlet-name>HelloWorldAlex</servlet-name>
-  <servlet-class>com.microsoft.demo.HelloWorld</servlet-class> 
+  <servlet-name>CurrencyExchange</servlet-name>
+  <servlet-class>com.studienarbeit.CurrencyExchange</servlet-class> 
 </servlet> 
 
 <servlet-mapping>
-  <servlet-name>HelloWorldAlex</servlet-name>
+  <servlet-name>CurrencyExchange</servlet-name>
   <url-pattern>/*</url-pattern> 
 </servlet-mapping> 
 </web-app>
