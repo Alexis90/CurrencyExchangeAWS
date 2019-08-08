@@ -57,7 +57,12 @@ public class CurrencyExchange extends HttpServlet {
 			while ((line = reader.readLine()) != null)
 				sb.append(line);
 		} catch (Exception e) {
-			/* report an error */ }
+			e.printStackTrace();
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			out.print("We were not able to read your request");
+			out.close();
+		
+		}
 
 		try {
 			String jsonString = sb.toString();
@@ -83,6 +88,7 @@ public class CurrencyExchange extends HttpServlet {
 					out.close();
 					return;
 				}
+			
 
 			default:
 				break;
@@ -96,10 +102,7 @@ public class CurrencyExchange extends HttpServlet {
 		}
 		finally{
 			out.close();
-		}
-		
-		
-
+		} 
 		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
