@@ -17,5 +17,5 @@ phases:
 artifacts:
   files:
     - target/currencyexchanger.war
-    - target/site/pmd.html
-    - target/site/jacoco/index.html
+   # - target/site/pmd.html
+   # - target/site/jacoco/index.html
