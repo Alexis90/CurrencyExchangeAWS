@@ -15,7 +15,7 @@ phases:
     commands:
       - mvn package
       - mv target/my-web-app ./
-  artifacts:
-    files:
-      - my-web-app/**/*
-    discard-paths: yes
+artifacts:
+  files:
+    - my-web-app/**/*
+  discard-paths: yes
