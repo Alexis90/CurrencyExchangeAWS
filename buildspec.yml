@@ -13,9 +13,15 @@ phases:
       - mvn clean install
   post_build:
     commands:
-      - echo Build completed on `date`
+      - mvn package
+      - mv target/my-web-app ./
 artifacts:
   files:
-    - target/currencyexchanger.war
+    - my-web-app/**/*
+ discard-paths: yes
+ 
+#artifacts:
+  #files:
+   # - target/currencyexchanger.war
    # - target/site/pmd.html
    # - target/site/jacoco/index.html
