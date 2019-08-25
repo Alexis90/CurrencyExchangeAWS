@@ -14,8 +14,8 @@ phases:
   post_build:
     commands:
       - mvn package
-      - mv target/my-web-app ./
+      - mv target/currencyexchanger ./
 artifacts:
   files:
-    - my-web-app/**/*
+    - currencyexchanger/**/*
   discard-paths: yes
