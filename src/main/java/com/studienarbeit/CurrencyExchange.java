@@ -12,26 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class CurrencyExchange extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String operationGetCourse = "getCourse";
 	private static final String operationCalculateValue = "calculateValue";
 
-	
 	public CurrencyExchange() {
-		
+
 	}
 
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		response.setContentType("plain/text");
 		response.getWriter().append("I am running");
 
 	}
 
-	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
@@ -102,13 +98,9 @@ public class CurrencyExchange extends HttpServlet {
 
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		if (jsonResponse != null) {
-			out.print(jsonResponse.toString());
-		} else {
-			out.print("Sorry, there were no information found for the requested query");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
-		}
+		out.print(jsonResponse.toString());
+
 		out.flush();
 		out.close();
 
