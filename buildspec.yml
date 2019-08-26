@@ -18,7 +18,7 @@ artifacts:
     files:
       - '**/*'
     base-directory: 'target/application'
-secondary-artifacts:
-    files:
-      - target/site/pmd.html
-    name: 'Second'
+    secondary-artifacts:
+      files:
+        - target/site/pmd.html
+      name: 'Second'
