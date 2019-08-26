@@ -19,6 +19,8 @@ artifacts:
       files:
         - '**/*'
       base-directory: 'target/application'
+      name: 'Test1'
     artifact2:
       files:
         - target/site/pmd.html
+      name: 'Test2'
