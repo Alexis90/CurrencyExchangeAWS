@@ -21,3 +21,4 @@ artifacts:
 secondary-artifacts:
     files:
       - target/site/pmd.html
+    name: 'Second'
