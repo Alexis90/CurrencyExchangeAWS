@@ -17,5 +17,5 @@ phases:
       - mvn package
 artifacts:
   files:
-    - target/application.war
-  discard-paths: yes
+    - '**/*'
+  base-directory: 'target/application'
