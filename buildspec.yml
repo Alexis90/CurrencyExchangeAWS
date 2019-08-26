@@ -16,7 +16,7 @@ phases:
       - echo Build completed on `date`
 artifacts:
     secondary-artifacts:
-      codecheck:
+      Second:
         files:
           - target/site/pmd.html
       BuildArtifact: 
