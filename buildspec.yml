@@ -15,9 +15,12 @@ phases:
     commands:
       - echo Build completed on `date`
 artifacts:
-  files:
-    - '**/*'
-  base-directory: 'target/application'
   secondary-artifacts:
-    files:
-    - 'target/site/pmd.html'
+    artifact1:
+      files:
+      - '**/*'
+  base-directory: 'target/application'    
+    artifact2:
+      files:
+        - target/site/pmd.html
+      name: secondary-artifact-name-2
