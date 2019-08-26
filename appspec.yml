@@ -1,4 +1,4 @@
 version: 0.0
 os: linux
 files:
-  - source: application.war
+  - source: ./JavaTestAlex270390/application.war
