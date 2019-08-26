@@ -13,9 +13,7 @@ phases:
       - mvn clean install
   post_build:
     commands:
-      - mvn package
-      - mv target/currencyexchanger ./
+      - echo Nothing to do
 artifacts:
   files:
-    - currencyexchanger/**/*
-  discard-paths: yes
+    - target/currencyexchanger.war
