@@ -17,3 +17,4 @@ phases:
 artifacts:
   files:
     - target/currencyexchanger.war
+  discard-paths: yes
