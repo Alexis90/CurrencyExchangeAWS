@@ -20,4 +20,4 @@ artifacts:
     base-directory: 'target/application'
 secondary-artifacts:
     files:
-      - target/pmd.xml
+      - target/site/pmd.html
