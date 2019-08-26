@@ -10,10 +10,11 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn clean install
+      - mvn test
   post_build:
     commands:
-      - echo Nothing to do
+      - echo Build completed on `date`
+      - mvn package
 artifacts:
   files:
     - target/currencyexchanger.war
