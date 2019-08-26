@@ -23,4 +23,3 @@ artifacts:
     artifact2:
       files:
         - target/site/pmd.html
-      name: secondary-artifact-name-2
