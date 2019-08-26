@@ -18,8 +18,4 @@ artifacts:
     files:
       - '**/*'
     base-directory: 'target/application'
-    name: BuildArtifact
-    secondary-artifacts:
-      codecheck:
-        files:
-          - target/site/pmd.html
+
