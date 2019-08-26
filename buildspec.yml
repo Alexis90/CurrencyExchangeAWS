@@ -19,6 +19,6 @@ artifacts:
     - '**/*'
   base-directory: 'target/application'
   secondary-artifacts:
-    codecheck:
+    CodeCheck:
       files:
         - 'target/site/pmd.html'
