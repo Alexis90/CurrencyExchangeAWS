@@ -22,3 +22,4 @@ artifacts:
     CodeCheck:
       files:
         - 'target/site/pmd.html'
+        - 'target/site/jacoco/index.html'
