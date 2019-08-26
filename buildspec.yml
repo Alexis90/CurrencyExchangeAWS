@@ -17,6 +17,6 @@ phases:
       - mvn package
 artifacts:
   files:
-    - target/currencyexchanger.war
+    - target/application.jar
     - appspec.yml
   discard-paths: yes
